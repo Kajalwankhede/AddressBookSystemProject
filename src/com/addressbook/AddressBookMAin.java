@@ -31,8 +31,22 @@ public class AddressBookMAin {
                 case 2:
                     addressBook.displayDetails();;
 
-
                 case 3:
+                    System.out.println("Enter the FirstName to edit details: ");
+                    String firstName = sc.next();
+
+                    boolean update = addressBook.updateDetails(firstName);
+                    if (update == true) {
+                        System.out.println("Record Updated SuccessFully!!");
+                        System.out.println("--------------------------------------------------------");
+                    } else {
+                        System.out.println("Record Not Found!!");
+                        System.out.println("--------------------------------------------------------");
+                    }
+                    break;
+
+
+                case 4:
                     flag =false;
                     break;
 

@@ -39,4 +39,77 @@ public class AddressBookDetails {
         }
 
     }
+    public boolean updateDetails(String Name) {
+        int flag = 0;
+        for (AddressBook contact : list) {
+            if (contact.getfirstName().equals(Name)) {
+                System.out.println("Enter option to Update:");
+                System.out.println("1.FirstName");
+                System.out.println("2.LastName");
+                System.out.println("3.Address");
+                System.out.println("4.City");
+                System.out.println("5.State");
+                System.out.println("6.Zip");
+                System.out.println("7.Phone Number");
+                System.out.println("8.Email");
+
+                int ch = sc.nextInt();
+                switch (ch) {
+                    case 1: {
+                        System.out.println("Enter Updated First Name: ");
+                        String firstName = sc.next();
+                        contact.setFirstName(firstName);
+                        break;
+                    }
+                    case 2: {
+                        System.out.println("Enter Updated last name: ");
+                        String lastName = sc.next();
+                        contact.setLastName(lastName);
+                        break;
+                    }
+                    case 3: {
+                        System.out.println("Enter Updated Address: ");
+                        String address = sc.next();
+                        contact.setAddress(address);
+                        break;
+                    }
+                    case 4: {
+                        System.out.println("Enter Updated City: ");
+                        String city = sc.next();
+                        contact.setCity(city);
+                        break;
+                    }
+                    case 5: {
+                        System.out.println("Enter Updated State: ");
+                        String state = sc.next();
+                        contact.setState(state);
+                        break;
+                    }
+                    case 6: {
+                        System.out.println("Enter Updated Zip : ");
+                        String zip = sc.next();
+                        contact.setZip(zip);
+                        break;
+                    }
+                    case 7: {
+                        System.out.println("Enter Updated Phone Number:");
+                        String phoneNumber = sc.next();
+                        contact.setPhoneNumber(phoneNumber);
+                        break;
+                    }
+                    case 8: {
+                        System.out.println("Enter Updated Email: ");
+                        String email = sc.next();
+                        contact.setEmail(email);
+                        break;
+                    }
+
+                }
+
+                flag = 1;
+                break;
+            }
+        }
+        return flag == 1;
+    }
 }
