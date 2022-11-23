@@ -16,8 +16,7 @@ public class AddressBookMAin {
             System.out.println("2.Display Contact");
             System.out.println("3.Edit Contact");
             System.out.println("4.Delete Contact");
-            System.out.println("5.Sort Person details");
-            System.out.println("6.Exit");
+            System.out.println("5.Exit");
             System.out.println("Enter Choice: ");
 
             int option = sc.nextInt();
@@ -29,7 +28,8 @@ public class AddressBookMAin {
                     break;
 
                 case 2:
-                    addressBook.displayDetails();;
+                    addressBook.displayDetails();
+                    break;
 
                 case 3:
                     System.out.println("Enter the FirstName to edit details: ");

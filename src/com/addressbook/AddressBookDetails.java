@@ -11,15 +11,15 @@ public class AddressBookDetails {
 
     public void addDetails() {
         System.out.println("Enter the Details: ");
-        int i = 0;
-        String firstName = null;
-        while (i == 0) {
+        int check = 0;
+        String firstName = null; // For ensure no duplicate entery accepts
+        while (check == 0) {
             System.out.println("Enter the First name: ");
             firstName = sc.next();
             if (checkUniqueName(firstName)) {
                 System.out.println("Name already exist!!");
             } else {
-                i = 1;
+                check = 1;
             }
         }
         System.out.println("Enter the Last name: ");
@@ -147,6 +147,4 @@ public class AddressBookDetails {
         }
         return false;
     }
-}
-
 }
