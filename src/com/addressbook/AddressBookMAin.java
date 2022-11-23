@@ -1,9 +1,14 @@
 package com.addressbook;
-
+import java.util.Collections;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookMAin {
     public static Scanner sc = new Scanner(System.in);
+    public static List<AddressBook> list = new ArrayList<AddressBook>();
     public static void main(String[] args) {
         System.out.println("******************Welcome to AddressBook System************************");
         AddressBookDetails addressBook = new AddressBookDetails();
@@ -16,7 +21,8 @@ public class AddressBookMAin {
             System.out.println("2.Display Contact");
             System.out.println("3.Edit Contact");
             System.out.println("4.Delete Contact");
-            System.out.println("5.Exit");
+            System.out.println("5.Sort Contact");
+            System.out.println("6.Exit");
             System.out.println("Enter Choice: ");
 
             int option = sc.nextInt();
@@ -24,14 +30,19 @@ public class AddressBookMAin {
             switch (option)
             {
                 case 1:
+                    System.out.println("--------------------------------------------------------");
                     addressBook.addDetails();
+                    System.out.println("--------------------------------------------------------");
                     break;
 
                 case 2:
+                    System.out.println("--------------------------------------------------------");
                     addressBook.displayDetails();
+                    System.out.println("--------------------------------------------------------");
                     break;
 
                 case 3:
+                    System.out.println("--------------------------------------------------------");
                     System.out.println("Enter the FirstName to edit details: ");
                     String firstName = sc.next();
 
@@ -59,10 +70,20 @@ public class AddressBookMAin {
                     break;
 
                 case 5:
+                    System.out.println("--------------------------------------------------------");
+                    addressBook.sortDetails();
+                    System.out.println("--------------------------------------------------------");
+                    break;
+
+                case 6:
                     flag =false;
                     break;
 
             }
         }
+
     }
+
+
 }
+

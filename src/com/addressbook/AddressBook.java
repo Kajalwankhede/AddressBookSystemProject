@@ -1,7 +1,9 @@
 package com.addressbook;
 
+import java.util.Comparator;
+
 public class AddressBook {
-    private String firstName;
+  private String firstName;
     private String lastName;
     private String address;
     private String city;
@@ -103,5 +105,26 @@ public class AddressBook {
         return " First Name: " + firstName + " Last Name: " + lastName + " Address: " + address + " City: " + city + " State: " + state + " Zip: " + zip + " Phone Number: " + phoneNumber + " Email: " + email;
 
     }
-}
+
+    public static  Comparator<AddressBook>citySorting=new Comparator<AddressBook>() {
+        @Override
+        public int compare(AddressBook book1, AddressBook book2) {
+            String city1=book1.getcity();
+            String city2=book2.getcity();
+            return city1.compareToIgnoreCase(city2);
+
+        }
+    };
+    public static  Comparator<AddressBook>stateSorting=new Comparator<AddressBook>() {
+        @Override
+        public int compare(AddressBook book1, AddressBook book2) {
+            String state1=book1.getState();
+            String state2=book2.getState();
+            return state1.compareToIgnoreCase(state2);
+
+        }
+    };
+
+    }
+
 
