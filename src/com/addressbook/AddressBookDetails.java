@@ -10,8 +10,18 @@ public class AddressBookDetails {
     public Collection<AddressBook> list = new ArrayList<AddressBook>();
 
     public void addDetails() {
-        System.out.println("Enter the First name: ");
-        String firstName = sc.next();
+        System.out.println("Enter the Details: ");
+        int i = 0;
+        String firstName = null;
+        while (i == 0) {
+            System.out.println("Enter the First name: ");
+            firstName = sc.next();
+            if (checkUniqueName(firstName)) {
+                System.out.println("Name already exist!!");
+            } else {
+                i = 1;
+            }
+        }
         System.out.println("Enter the Last name: ");
         String lastName = sc.next();
         System.out.println("Enter the Address: ");
@@ -124,4 +134,19 @@ public class AddressBookDetails {
         }
         return flag == 1;
     }
+    public boolean checkUniqueName(String name) {
+        int flag = 0;
+        for (AddressBook contact : list) {
+            if (contact.getfirstName().equals(name)) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 1) {
+            return true;
+        }
+        return false;
+    }
+}
+
 }
