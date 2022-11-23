@@ -1,12 +1,13 @@
 package com.addressbook;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookDetails {
     public static Scanner sc = new Scanner(System.in);
-    public List<AddressBook> list = new ArrayList<AddressBook>();
+    public Collection<AddressBook> list = new ArrayList<AddressBook>();
 
     public void addDetails() {
         System.out.println("Enter the First name: ");
