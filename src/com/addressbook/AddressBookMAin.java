@@ -45,8 +45,20 @@ public class AddressBookMAin {
                     }
                     break;
 
-
                 case 4:
+                    System.out.println("Enter the FirstName to deleted:");
+                     firstName = sc.next();
+                    boolean listDeleted = addressBook.deleteDetail(firstName);
+                    if (listDeleted) {
+                        System.out.println("Record Deleted SuccessFully");
+                        System.out.println("--------------------------------------------------------");
+                    } else {
+                        System.out.println("Record Not Found!!");
+                        System.out.println("--------------------------------------------------------");
+                    }
+                    break;
+
+                case 5:
                     flag =false;
                     break;
 

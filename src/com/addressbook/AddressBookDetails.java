@@ -112,4 +112,15 @@ public class AddressBookDetails {
         }
         return flag == 1;
     }
+    public boolean deleteDetail(String name) {
+        int flag = 0;
+        for (AddressBook contact : list) {
+            if (contact.getfirstName().equals(name)) {
+                list.remove(contact);
+                flag = 1;
+                break;
+            }
+        }
+        return flag == 1;
+    }
 }
