@@ -21,7 +21,7 @@ public class AddressBookMAin {
             System.out.println("2.Display Contact");
             System.out.println("3.Edit Contact");
             System.out.println("4.Delete Contact");
-            System.out.println("5.Sort Contact");
+            System.out.println("5.Search Contact");
             System.out.println("6.Exit");
             System.out.println("Enter Choice: ");
 
@@ -71,7 +71,7 @@ public class AddressBookMAin {
 
                 case 5:
                     System.out.println("--------------------------------------------------------");
-                    addressBook.sortDetails();
+                    addressBook.searchDetails();
                     System.out.println("--------------------------------------------------------");
                     break;
 

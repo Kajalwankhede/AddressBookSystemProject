@@ -149,31 +149,34 @@ public class AddressBookDetails {
         return false;
     }
 
-    public void sortDetails() {
-        System.out.println("Details sort by \n1. City Name \n2.StateName");
+    public void searchDetails() {
+        System.out.println("Details search by \n1. City Name \n2. State Name");
         int choice = sc.nextInt();
         switch (choice) {
             case 1:
-                sortByCity(list);
+                searchState();
                 break;
             case 2:
-                sortByState(list);
+               searchCity();
             default:
                 System.out.println("--------------------");
         }
     }
-    private void sortByCity(List<AddressBook> list) {
-        Collections.sort(list, AddressBook.citySorting);
-        for (AddressBook book : list) {
-            System.out.println(book);
-        }
+    public static void searchState(){
+        list.stream()
+                .filter(state -> state.getState().equalsIgnoreCase("Maharashtra"))
+                .sorted( Comparator.comparing(AddressBook::getfirstName))
+                .forEach(state-> System.out.println(state.getfirstName()));
+        System.out.println(list);
+    }
+    public static void searchCity(){
+
+        list.stream()
+                .filter(cityName -> cityName.getcity().equalsIgnoreCase("mumbai"))
+                .sorted( Comparator.comparing(AddressBook::getfirstName))
+                .forEach(cityName-> System.out.println(cityName.getfirstName()));
+        System.out.println(list);
+
     }
 
-
-    private void sortByState(List<AddressBook> list) {
-        Collections.sort(list,AddressBook.stateSorting);
-        for (AddressBook book:list){
-            System.out.println(book);
-        }
-    }
 }

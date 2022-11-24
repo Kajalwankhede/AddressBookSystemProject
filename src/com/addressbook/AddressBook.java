@@ -3,7 +3,7 @@ package com.addressbook;
 import java.util.Comparator;
 
 public class AddressBook {
-  private String firstName;
+    private String firstName;
     private String lastName;
     private String address;
     private String city;
@@ -12,7 +12,7 @@ public class AddressBook {
     private String phoneNumber;
     private String email;
 
-    AddressBook( String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {//Declaring instance variable using constructor
+    AddressBook(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {//Declaring instance variable using constructor
         this.firstName = firstName;// initialize instance variable
         this.lastName = lastName;
         this.address = address;
@@ -27,8 +27,9 @@ public class AddressBook {
         return firstName;
 
     }
+
     public void setFirstName(String firstName) {
-        this.firstName=firstName;
+        this.firstName = firstName;
 
     }
 
@@ -36,8 +37,9 @@ public class AddressBook {
         return lastName;
 
     }
+
     public void setLastName(String lastName) {
-        this.lastName=lastName;
+        this.lastName = lastName;
 
     }
 
@@ -46,8 +48,9 @@ public class AddressBook {
         return address;
 
     }
+
     public void setAddress(String address) {
-        this.address=address;
+        this.address = address;
 
     }
 
@@ -56,8 +59,9 @@ public class AddressBook {
         return city;
 
     }
+
     public void setCity(String city) {
-        this.city=city;
+        this.city = city;
 
     }
 
@@ -65,8 +69,9 @@ public class AddressBook {
         return state;
 
     }
+
     public void setState(String state) {
-        this.state=state;
+        this.state = state;
 
     }
 
@@ -74,8 +79,9 @@ public class AddressBook {
         return zip;
 
     }
+
     public void setZip(String zip) {
-        this.zip=zip;
+        this.zip = zip;
 
     }
 
@@ -86,7 +92,7 @@ public class AddressBook {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber=phoneNumber;
+        this.phoneNumber = phoneNumber;
 
     }
 
@@ -96,7 +102,7 @@ public class AddressBook {
     }
 
     public void setEmail(String email) {
-        this.email=email;
+        this.email = email;
 
     }
 
@@ -106,24 +112,5 @@ public class AddressBook {
 
     }
 
-    public static  Comparator<AddressBook>citySorting=new Comparator<AddressBook>() {
-        @Override
-        public int compare(AddressBook book1, AddressBook book2) {
-            String city1=book1.getcity();
-            String city2=book2.getcity();
-            return city1.compareToIgnoreCase(city2);
-
-        }
-    };
-    public static  Comparator<AddressBook>stateSorting=new Comparator<AddressBook>() {
-        @Override
-        public int compare(AddressBook book1, AddressBook book2) {
-            String state1=book1.getState();
-            String state2=book2.getState();
-            return state1.compareToIgnoreCase(state2);
-
-        }
-    };
-    }
-
+}
 
