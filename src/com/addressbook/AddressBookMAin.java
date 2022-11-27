@@ -13,6 +13,7 @@ public class AddressBookMAin {
         System.out.println("******************Welcome to AddressBook System************************");
         AddressBookDetails addressBook = new AddressBookDetails();
 
+
         boolean flag = true;
 
         while(flag) {
@@ -24,18 +25,21 @@ public class AddressBookMAin {
             System.out.println("5.Search Contact");
             System.out.println("6.Count Contact");
             System.out.println("7.Sort Contact");
-            System.out.println("8.Exit");
+            System.out.println("8.Write Data to File");
+            System.out.println("9.Read Data to File");
+            System.out.println("10.Exit");
             System.out.println("Enter Choice: ");
-
+            System.out.println("--------------------------------------------------------");
             int option = sc.nextInt();
 
-            switch (option)
-            {
+            switch (option) {
                 case 1:
                     System.out.println("--------------------------------------------------------");
                     addressBook.addDetails();
+
                     System.out.println("--------------------------------------------------------");
                     break;
+
 
                 case 2:
                     System.out.println("--------------------------------------------------------");
@@ -60,7 +64,7 @@ public class AddressBookMAin {
 
                 case 4:
                     System.out.println("Enter the FirstName to deleted:");
-                     firstName = sc.next();
+                    firstName = sc.next();
                     boolean listDeleted = addressBook.deleteDetail(firstName);
                     if (listDeleted) {
                         System.out.println("Record Deleted SuccessFully");
@@ -89,12 +93,25 @@ public class AddressBookMAin {
                     break;
 
                 case 8:
-                    flag =false;
+                    System.out.println("--------------------------------------------------------");
+                    addressBook.writeData();
+                    System.out.println("--------------------------------------------------------");
+                    break;
+
+                case 9:
+                    System.out.println("--------------------------------------------------------");
+                    addressBook.readData();
+                    System.out.println("--------------------------------------------------------");
+                    break;
+
+
+                case 10:
+                    flag = false;
                     break;
 
             }
-        }
 
+        }
     }
 
 

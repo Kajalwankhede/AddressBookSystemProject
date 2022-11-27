@@ -1,5 +1,9 @@
 package com.addressbook;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -158,7 +162,7 @@ public class AddressBookDetails {
                 searchState();
                 break;
             case 2:
-               searchCity();
+                searchCity();
             default:
                 System.out.println("--------------------");
         }
@@ -182,6 +186,7 @@ public class AddressBookDetails {
                 System.out.println("--------------------------------------------------------");
         }
     }
+
     public void countByStateOrCity() {
         System.out.println("Details count by \n1. City Name \n2. State Name");
         int choice = sc.nextInt();
@@ -195,62 +200,95 @@ public class AddressBookDetails {
                 System.out.println("--------------------------------------------------------");
         }
     }
-    public static void searchState(){
+
+    public static void searchState() {
         list.stream()
                 .filter(state -> state.getState().equalsIgnoreCase("Maharashtra"))
-                .sorted( Comparator.comparing(AddressBook::getfirstName))
-                .forEach(state-> System.out.println(state.getfirstName()));
+                .sorted(Comparator.comparing(AddressBook::getfirstName))
+                .forEach(state -> System.out.println(state.getfirstName()));
         System.out.println(list);
     }
-    public static void searchCity(){
+
+    public static void searchCity() {
 
         list.stream()
                 .filter(cityName -> cityName.getcity().equalsIgnoreCase("mumbai"))
-                .sorted( Comparator.comparing(AddressBook::getfirstName))
-                .forEach(cityName-> System.out.println(cityName.getfirstName()));
+                .sorted(Comparator.comparing(AddressBook::getfirstName))
+                .forEach(cityName -> System.out.println(cityName.getfirstName()));
         System.out.println(list);
 
     }
-    public static void countByState(){
 
-      long count=  list.stream()
-              .filter(stateName -> stateName.getState().equalsIgnoreCase("maharashtra"))
+    public static void countByState() {
+
+        long count = list.stream()
+                .filter(stateName -> stateName.getState().equalsIgnoreCase("maharashtra"))
                 .count();
         System.out.println(count);
     }
-    public static void countByCity(){
+
+    public static void countByCity() {
 
 
-        long count=  list.stream()
+        long count = list.stream()
                 .filter(cityName -> cityName.getcity().equalsIgnoreCase("mumbai"))
                 .count();
         System.out.println(count);
     }
-    public static void sortByFirstName(){
+
+    public static void sortByFirstName() {
 
         list.stream()
                 .sorted(Comparator.comparing(AddressBook::getfirstName))
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
     }
-    public static void sortByState(){
+
+    public static void sortByState() {
         list.stream()
                 .sorted(Comparator.comparing(AddressBook::getState))
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
     }
 
-    public static void sortByCity(){
+    public static void sortByCity() {
         list.stream()
                 .sorted(Comparator.comparing(AddressBook::getcity))
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
     }
 
-    public static void sortByzip(){
+    public static void sortByzip() {
         list.stream()
                 .sorted(Comparator.comparing(AddressBook::getZip))
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
     }
+
+    public void writeData() {
+        StringBuffer empBuffer = new StringBuffer();
+        list.forEach(employee -> {
+            String data = employee.toString().concat("\n");
+            empBuffer.append(data);
+        });
+        try {
+            Files.write(Paths.get("AddressBookData.txt"), empBuffer
+                    .toString().getBytes());
+
+        } catch (IOException e) {
+            System.out.println("Exception");
+        }
+    }
+
+    public void readData() {
+        try {
+            Files.lines(new File("AddressBookData.txt")
+                    .toPath()).map(line -> line.trim())
+                    .forEach(line -> System.out.println(line));
+
+        } catch (IOException e) {
+
+        }
+    }
 }
+
